@@ -1,0 +1,10 @@
+Edit footnote for <%= @article.title %><br><br>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', [@article, @footnote],
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }
+                        %><br>
+
+<%= link_to 'Back', @article %>

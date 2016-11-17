@@ -1,0 +1,16 @@
+<%= javascript_include_tag Ckeditor.cdn_url %>
+<h2>Create new article:</h2>>
+
+<%= form_for @article do |form| %>
+  <div>
+    <%= cktext_area :title, rows: 1 %>
+  </div>
+
+  <div>
+    <%= cktext_area :body, rows: 10 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
