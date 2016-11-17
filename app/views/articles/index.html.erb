@@ -1,7 +1,7 @@
 <h1>Articles</h1>
 <% @articles.each do |article| %>
   <%= article.title %>
-  <%= article.body %>
+  <%= raw article.body %>
   <%= link_to 'Show', article %>
   <%= link_to 'Edit', edit_article_path(article) %>
   <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are ya suurrrre?' } %>
