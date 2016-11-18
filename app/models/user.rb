@@ -6,11 +6,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
 end
 
 
-# enum role: [:admin, :moderator]
-# in user migration: define as an attribute 
-# t.integer :role
-# in view: if current_user.role == admin

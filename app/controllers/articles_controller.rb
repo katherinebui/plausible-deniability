@@ -9,12 +9,14 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   def create
     @article = Article.new(article_params)
 
     if @article.save
+      @article.assign_categories(params)
       redirect_to @article
     else
       render 'new'
@@ -31,9 +33,12 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @revised_article = Article.new(article_params)
 
-    if @article.update(article_params)
-      redirect_to @article
+    if @revised_article.save
+      @revision = Revision.create(editor_id: current_user.id, article_id: @revised_article.id, original_article_id: @article.id)
+
+      redirect_to article_revisions_path(@article)
     else
       render 'edit'
     end
