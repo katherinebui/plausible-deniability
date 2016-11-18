@@ -15,4 +15,5 @@ class Article < ApplicationRecord
       self.categories << Category.find(id)
     end
   end
+
 end
