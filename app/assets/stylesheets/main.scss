@@ -1,0 +1,36 @@
+.container.fluid {
+  margin: 0 20px;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+
+  h1 {
+    display: inline-block;
+    margin: 0 20px;
+    max-width: 40%;
+    padding: 15px 0 0;
+    font: 3em cursive, "Open Sans", sans;
+    vertical-align: bottom;
+  }
+
+  ul {
+    display: inline-block;
+    max-width: 60%;
+    text-align: right;
+    vertical-align: bottom;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 20px 20px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
