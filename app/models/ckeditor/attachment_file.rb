@@ -10,4 +10,8 @@ class Ckeditor::AttachmentFile < Ckeditor::Asset
   def url_thumb
     @url_thumb ||= Ckeditor::Utils.filethumb(filename)
   end
+
+  def store_dir
+    "public/system/ckeditor_assets/attachments/#{model.id}"
+  end
 end
