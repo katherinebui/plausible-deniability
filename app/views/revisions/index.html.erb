@@ -1,6 +1,8 @@
 <% if current_user.is_moderator %>
   <% Revision.where(original_article: @article).each do |revision| %>
-  <%= revision.id %>
+  <% form_for revision do |f| %>
+    <%= f.check_box(revision.id) %>
+  <% end %>
   <%= revision.editor_id%>
   <%= revision.original_article_id %>
   <%= link_to revision.article_id, article_path(revision.article_id)  %>
