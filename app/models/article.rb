@@ -16,4 +16,7 @@ class Article < ApplicationRecord
     end
   end
 
+  def make_published
+  end
+
 end
