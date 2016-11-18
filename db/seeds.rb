@@ -35,6 +35,7 @@ end
   Article.create!( title: Faker::Pokemon.name,
                    body: Faker::ChuckNorris.fact,
                    author_id: rand(1..20)
+                   
   )
 end
 
