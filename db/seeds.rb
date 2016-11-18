@@ -33,9 +33,9 @@ end
 
 20.times do
   Article.create!( title: Faker::Pokemon.name,
-                   body: Faker::ChuckNorris.fact,
+                   body: "<p>#{Faker::ChuckNorris.fact}</p>",
                    author_id: rand(1..20)
-                   
+
   )
 end
 
