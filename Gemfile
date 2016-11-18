@@ -62,3 +62,4 @@ gem 'ckeditor'
 
 # kathy adds
 gem 'rb-readline'
+gem 'ransack'

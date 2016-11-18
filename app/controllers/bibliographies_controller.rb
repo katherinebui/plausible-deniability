@@ -1,17 +1,22 @@
 class BibliographiesController < ApplicationController
 
   def new
-    @article = Article.find(params[:id]) # Might break. We're testing article_id vs id
+    @article = Article.find(params[:article_id]) # Might break. We're testing article_id vs id
     @bibliography = Bibliography.new
   end
 
   def create
     @article = Article.find(params[:article_id])
     @bibliography = @article.bibliographies.new(bibliography_params)
+    if @bibliography.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.find(params[:article_id])
   end
 
   def update

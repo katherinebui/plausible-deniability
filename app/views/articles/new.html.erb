@@ -12,9 +12,20 @@
     <%= form.cktext_area :body, rows: 10, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
   </div>
 
-    <div>
+  <div>
     <%= form.label :author_id %><br>
     <%= form.text_area :author_id %>
+  </div>
+
+  <div>
+    <%= form.label :categories %><br>
+    <%= form.collection_check_boxes :category_ids, @categories, :id, :name, include_hidden: false do |box| %>
+      <div class="collection_check_boxes">
+        <%= box.check_box %>
+        <%= box.label %>
+      </div>
+    <% end %>
+
   </div>
 
   <div>

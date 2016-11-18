@@ -1,0 +1,30 @@
+<% if @bibliography.errors.any? %>
+  <div id="error-list">
+    <h2>Errors</h2>
+  <ul>
+    <% @bibliography.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<%= form_for [@article, @bibliography] do |f| %>
+  <fieldset>
+    <%= f.label :title, "Resource name" %>
+    <%= f.text_field :title %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :body, "Brief description" %>
+    <%= f.text_field :body %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :link_url, "Link" %>
+    <%= f.text_field :link_url %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>
