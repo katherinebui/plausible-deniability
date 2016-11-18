@@ -10,5 +10,4 @@ Rails.application.routes.draw do
     resources :footnotes, except: [:show]
     resources :revisions, only: [:index]
   end
-
 end

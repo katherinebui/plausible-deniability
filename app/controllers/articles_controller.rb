@@ -23,6 +23,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # def unpublish
+  #   p "ARE WE HERE?"
+  #   @article = Article.find(params[:art_id])
+  #   @article.update_attribute(published: false)
+  #   redirect_to '/'
+  # end
+
   def show
     @article = Article.find(params[:id])
   end
@@ -32,15 +39,21 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
-    @revised_article = Article.new(article_params)
-
-    if @revised_article.save
-      @revision = Revision.create(editor_id: current_user.id, article_id: @revised_article.id, original_article_id: @article.id)
-
-      redirect_to article_revisions_path(@article)
+    if params[:unpublishing]
+      @article = Article.find(params[:id])
+      @article.update_attribute(:published, false)
+      redirect_to "/"
     else
-      render 'edit'
+      @article = Article.find(params[:id])
+      @revised_article = Article.new(article_params)
+
+      if @revised_article.save
+        @revision = Revision.create(editor_id: current_user.id, article_id: @revised_article.id, original_article_id: @article.id)
+
+        redirect_to article_revisions_path(@article)
+      else
+        render 'edit'
+      end
     end
   end
 
@@ -50,9 +63,10 @@ class ArticlesController < ApplicationController
     redirect_to '/'
   end
 
+
   private
     def article_params
-      params.require(:article).permit(:title, :body, :author_id)
+      params.require(:article).permit(:title, :body, :author_id, :published)
     end
 
 end
