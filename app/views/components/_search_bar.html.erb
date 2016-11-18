@@ -1,0 +1,9 @@
+<div class="row col-md-4 col-md-offset-8">
+  Search for an article:
+  <%= search_form_for @search do |f| %>
+    <%= f.label :title_cont %>
+    <%= f.search_field :title_cont %>
+
+    <%= f.submit %>
+  <% end %>
+</div>
