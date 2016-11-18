@@ -9,12 +9,14 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   def create
     @article = Article.new(article_params)
 
     if @article.save
+      @article.assign_categories(params)
       redirect_to @article
     else
       render 'new'
