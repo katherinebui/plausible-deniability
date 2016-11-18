@@ -1,3 +1,4 @@
+<%= @article.id %>
 <div>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -44,5 +45,8 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
 <%= link_to 'Back', articles_path %>
+

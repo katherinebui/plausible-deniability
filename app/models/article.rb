@@ -7,6 +7,4 @@ class Article < ApplicationRecord
   has_many :revisions
   has_many :categories, through: :article_categories
   has_many :editors, through: :revisions
-  
-
 end

@@ -1,9 +1,30 @@
 20.times do
   User.create!( username: Faker::Internet.user_name,
                 email: Faker::Internet.email,
-                password: "djkms5",
+                password: "2saucy",
                 is_moderator: false )
 end
+
+User.create!( username: "kathy",
+                email: "k@k.com",
+                password: "2saucy",
+                is_moderator: true )
+
+User.create!( username: "meredith",
+                email: "m@m.com",
+                password: "2saucy",
+                is_moderator: true )
+
+User.create!( username: "jay",
+                email: "j@j.com",
+                password: "2saucy",
+                is_moderator: true )
+
+User.create!( username: "derrick",
+                email: "d@d.com",
+                password: "2saucy",
+                is_moderator: true )
+
 
 20.times do
   Category.create!( name: Faker::Company.catch_phrase
@@ -14,6 +35,7 @@ end
   Article.create!( title: Faker::Pokemon.name,
                    body: Faker::ChuckNorris.fact,
                    author_id: rand(1..20)
+                   
   )
 end
 
