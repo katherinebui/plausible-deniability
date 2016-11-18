@@ -6,7 +6,6 @@ class RevisionsController < ApplicationController
   end
 
   def show
-    # @article = Article.find(params[:article_id])
     @revision = Revision.find(params[:id])
   end
 

@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    # @revised_article = Revision.where(article_id: @)
   end
 
   def edit
