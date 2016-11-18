@@ -34,8 +34,8 @@ Search for an article:
 
 
   <% @articles.each do |article| %>
-    <%= article.title %><br>
-    <%= raw article.body %><br><br>
+    <%= article.title %>
+    <%= raw article.body %>
     <%= link_to 'Show', article %>  
   <% end %>
 
