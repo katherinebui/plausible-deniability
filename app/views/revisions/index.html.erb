@@ -1,11 +1,9 @@
 <% if current_user.is_moderator %>
   <% Revision.where(original_article: @article).each do |revision| %>
-  <% form_for revision do |f| %>
-    <%= f.check_box(revision.id) %>
-  <% end %>
-  <%= revision.editor_id%>
-  <%= revision.original_article_id %>
-  <%= link_to revision.article_id, article_path(revision.article_id)  %>
+  <p>Revision number: <%= revision.id %></p>
+  <p>Id of editor: <%= revision.editor_id%></p>
+  <p>Original article id: <%= revision.original_article_id %></p>
+  <p>Revised article: <%= link_to revision.article_id, article_path(revision.article_id)  %></p>
   <br>
   <% end %>
 <% end %>
