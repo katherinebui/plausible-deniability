@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # before_action :authenticate_user!, except: [:index]
 
   def index
-    @articles = Article.all
+    @articles = Article.where(published: true)
     @search = Article.ransack(params[:q])
     @articles = @search.result
   end
