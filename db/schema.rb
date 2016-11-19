@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20161118023443) do
   create_table "revisions", force: :cascade do |t|
     t.integer "editor_id"
     t.integer "article_id"
+    t.integer "original_article_id"
     t.index ["article_id"], name: "index_revisions_on_article_id", using: :btree
     t.index ["editor_id"], name: "index_revisions_on_editor_id", using: :btree
   end
