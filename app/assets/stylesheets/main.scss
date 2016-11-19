@@ -1,0 +1,42 @@
+.container-fluid {
+  margin: 0 20px;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+
+  h1 {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 15px 0 0;
+    font: 3em cursive, "Open Sans", sans;
+    vertical-align: bottom;
+  }
+
+  ul {
+    display: inline-block;
+    text-align: right;
+    vertical-align: bottom;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 20px 20px 0;
+    vertical-align: bottom;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.cat-sidebar {
+  margin-top: 50px;
+  li {
+    line-height: 1.8;
+  }
+}
