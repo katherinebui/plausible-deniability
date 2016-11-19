@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :bibliographies, except: [:show]
     resources :footnotes, except: [:show]
-    resources :revisions, only: [:index, :show]
+    resources :revisions, only: [:index]
   end
-
 end

@@ -59,6 +59,8 @@ gem 'awesome_print'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'ckeditor'
+gem 'normalize-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # kathy adds
 gem 'rb-readline'
