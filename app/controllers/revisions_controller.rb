@@ -5,8 +5,4 @@ class RevisionsController < ApplicationController
     @revision = @article.revisions
   end
 
-  def show
-    @revision = Revision.find(params[:id])
-  end
-
 end
