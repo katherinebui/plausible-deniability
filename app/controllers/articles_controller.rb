@@ -2,9 +2,11 @@ class ArticlesController < ApplicationController
   # before_action :authenticate_user!, except: [:index]
 
   def index
-    @articles = Article.where(published: true)
-    @search = Article.ransack(params[:q])
-    @articles = @search.result
+    @articles = Article.where(published: 'true')
+    @search = @articles.ransack(params[:q])
+    if @search
+      @articles = @search.result
+    end
   end
 
   def new
@@ -41,7 +43,7 @@ class ArticlesController < ApplicationController
   def update
     if params[:unpublishing]
       @article = Article.find(params[:id])
-      @article.update_attribute(:published, false)
+      @article.update(published: 'false')
       redirect_to "/"
     else
       @article = Article.find(params[:id])
