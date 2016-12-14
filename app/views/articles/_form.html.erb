@@ -1,0 +1,17 @@
+<%= javascript_include_tag Ckeditor.cdn_url %>
+
+<%= form_for @article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_area :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.cktext_area :body, rows: 10, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

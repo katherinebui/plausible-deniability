@@ -1,0 +1,55 @@
+<div>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</div>
+
+<div>
+  <strong>Body:</strong>
+  <%= raw @article.body %>
+</div>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+
+<div id="footnote">
+  <h2> Footnotes </h2>
+  <% if @article.footnotes.empty? %>
+    <p>
+      This article doesn't have any footnotes currently.
+      Would you like to <%= link_to 'add some', new_article_footnote_path(@article) %>
+    </p>
+  <% else %>
+    <ol>
+      <% @article.footnotes.each do |footnote| %>
+        <li>
+          <%= "#{footnote.text}: "  %> <a href= <%= footnote.url%> >read more</a>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
+
+<div id="biobliography">
+  <h2> For Further Reading </h2>
+  <% if @article.bibliographies.empty? %>
+    <p>
+      This article doesn't have any bibliographies currently. Would you like to <%= link_to "add some", new_article_bibliography_path(@article) %>
+    </p>
+  <% else %>
+    <ol>
+      <% @article.bibliographies.each do |biobliography| %>
+        <li>
+          <strong> <%= biobliography.title %> </strong>
+          <%= "#{biobliography.body} " %> <a href= <%= biobliography.link_url%> >Read more</a>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
+<%= link_to 'Back', articles_path %>

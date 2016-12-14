@@ -1,0 +1,25 @@
+<nav class= "navbar navbar-default">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <h1><%= link_to "Plausible Deniability", root_path %></h1>
+      </div>
+      <div class="col-md-4">
+        <ul class="nav navbar navbar-right">
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to('Login', new_user_session_path)  %>
+          </li>
+          <li>
+            <%= link_to "Register", new_user_registration_path, class: "Register" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

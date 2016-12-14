@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <h2>Edit Article</h2>
+
+  <%= render 'form', article: @article %>
+
+  <%= link_to 'Show', @article %> |
+  <%= link_to 'Back', articles_path %>
+<% end %>

@@ -1,0 +1,22 @@
+<% if @footnote.errors.any? %>
+  <div id="error-list">
+    <h2>Errors</h2>
+  <ul>
+    <% @footnote.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul> 
+  </div>
+<% end %>
+
+<%= form_for [@article, @footnote] do |f| %>
+
+  <%= f.label :text %><br>
+  <%= f.text_area :text %><br><br>
+
+  <%= f.label :url %><br>
+  <%= f.text_field :url %><br>
+
+  <%= f.submit %>
+
+<% end %> 

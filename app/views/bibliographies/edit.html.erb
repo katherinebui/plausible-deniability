@@ -1,0 +1,8 @@
+
+<div class="form-container">
+  <%= render 'form' %>
+
+  <%= link_to 'Delete', [@article, @bibliography], method: delete %>
+  <%= link_to 'Back', edit_article_path(@article) %>
+  <!--  This line can be handled with AJAX to clear and hide this form. Without AJAX, I'm not sure the best what to handle this without erasing other changes to the page. -->
+</div>

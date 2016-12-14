@@ -1,0 +1,10 @@
+<% if current_user.is_moderator %>
+  <% Revision.where(original_article: @article).each do |revision| %>
+  <p>Revision number: <%= revision.id %></p>
+  <p>Id of editor: <%= revision.editor_id%></p>
+  <p>Original article id: <%= revision.original_article_id %></p>
+  <p>Revised article: <%= link_to revision.article_id, article_path(revision.article_id)  %></p>
+  <p><%= link_to "Unpublish", article_path(revision.article, unpublishing: 'true'), method: :put %></p>
+  <br>
+  <% end %>
+<% end %>
